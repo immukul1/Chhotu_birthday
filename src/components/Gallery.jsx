@@ -10,6 +10,7 @@ function Gallery({ isActive }) {
   const photosRef = useRef([]);
   const lightboxImgRef = useRef(null);
 
+  // ✅ 15 PHOTOS LIST
   const photos = [
     { src: "/images/pic1.jpeg", alt: "Memory 1" },
     { src: "/images/pic2.jpeg", alt: "Memory 2" },
@@ -17,21 +18,25 @@ function Gallery({ isActive }) {
     { src: "/images/pic4.jpeg", alt: "Memory 4" },
     { src: "/images/pic5.jpeg", alt: "Memory 5" },
     { src: "/images/pic6.jpeg", alt: "Memory 6" },
+    { src: "/images/pic7.jpeg", alt: "Memory 7" },
+    { src: "/images/pic8.jpeg", alt: "Memory 8" },
+    { src: "/images/pic9.jpeg", alt: "Memory 9" },
+    { src: "/images/pic10.jpeg", alt: "Memory 10" },
+    { src: "/images/pic11.jpeg", alt: "Memory 11" },
+    { src: "/images/pic12.jpeg", alt: "Memory 12" },
+    { src: "/images/pic13.jpeg", alt: "Memory 13" },
+    { src: "/images/pic14.jpeg", alt: "Memory 14" },
+    { src: "/images/pic15.jpeg", alt: "Memory 15" },
   ];
 
-  // Reveal photos with GSAP when page becomes active
+  // Reveal animation
   useEffect(() => {
     if (isActive && !photosRevealed) {
-      setTimeout(() => setPhotosRevealed(true), 10);
+      setPhotosRevealed(true);
 
-      // Stagger animation for photos
       gsap.fromTo(
         photosRef.current,
-        {
-          opacity: 0,
-          y: 50,
-          scale: 0.8,
-        },
+        { opacity: 0, y: 50, scale: 0.8 },
         {
           opacity: 1,
           y: 0,
@@ -49,7 +54,6 @@ function Gallery({ isActive }) {
     setCurrentIndex(index);
     setLightboxOpen(true);
 
-    // Animate lightbox appearance
     if (lightboxImgRef.current) {
       gsap.fromTo(
         lightboxImgRef.current,
@@ -63,14 +67,8 @@ function Gallery({ isActive }) {
     setLightboxOpen(false);
   }, []);
 
-  // Handle body overflow in effect
   useEffect(() => {
-    if (lightboxOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "";
-    }
-
+    document.body.style.overflow = lightboxOpen ? "hidden" : "";
     return () => {
       document.body.style.overflow = "";
     };
@@ -79,7 +77,6 @@ function Gallery({ isActive }) {
   const showNext = useCallback(() => {
     const newIndex = (currentIndex + 1) % photos.length;
 
-    // Animate transition
     if (lightboxImgRef.current) {
       gsap.to(lightboxImgRef.current, {
         x: -100,
@@ -101,7 +98,6 @@ function Gallery({ isActive }) {
   const showPrev = useCallback(() => {
     const newIndex = (currentIndex - 1 + photos.length) % photos.length;
 
-    // Animate transition
     if (lightboxImgRef.current) {
       gsap.to(lightboxImgRef.current, {
         x: 100,
@@ -123,14 +119,9 @@ function Gallery({ isActive }) {
   useEffect(() => {
     const handleKeyDown = (e) => {
       if (!lightboxOpen) return;
-
-      if (e.key === "Escape") {
-        closeLightbox();
-      } else if (e.key === "ArrowLeft") {
-        showPrev();
-      } else if (e.key === "ArrowRight") {
-        showNext();
-      }
+      if (e.key === "Escape") closeLightbox();
+      if (e.key === "ArrowLeft") showPrev();
+      if (e.key === "ArrowRight") showNext();
     };
 
     window.addEventListener("keydown", handleKeyDown);
@@ -140,6 +131,7 @@ function Gallery({ isActive }) {
   return (
     <section className="gallery">
       <h2>📸 Our Beautiful Memories</h2>
+
       <div className="photos">
         {photos.map((photo, index) => (
           <img
@@ -161,30 +153,25 @@ function Gallery({ isActive }) {
             alt={photos[currentIndex].alt}
             onClick={(e) => e.stopPropagation()}
           />
-          <button
-            className="lightbox-close"
-            onClick={closeLightbox}
-            aria-label="Close lightbox"
-          >
-            ✖
-          </button>
+
+          <button className="lightbox-close" onClick={closeLightbox}>✖</button>
+
           <button
             className="nav-btn nav-prev"
             onClick={(e) => {
               e.stopPropagation();
               showPrev();
             }}
-            aria-label="Previous photo"
           >
             ‹
           </button>
+
           <button
             className="nav-btn nav-next"
             onClick={(e) => {
               e.stopPropagation();
               showNext();
             }}
-            aria-label="Next photo"
           >
             ›
           </button>
