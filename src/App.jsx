@@ -105,7 +105,7 @@ function App() {
 
           <p>
             Tum meri zindagi ka sabse khoobsurat hissa ho…  
-            aur aaj ka din sirf tumhara hai meri jaan 💗
+            aur aaj ka din sirf tumhara hai meri betaaa💗
           </p>
         </section>
 
@@ -117,11 +117,11 @@ function App() {
         <section className="teaser">
           <h2 id="teaserHeading">
             {birthdayReached
-              ? "💖 Ab shuru hota hai tumhara special surprise 💖"
-              : "✨ Ek pyaara sa surprise tumhara intezaar kar raha hai… ✨"}
+              ? "💖 Ab shuru hota hai tera special surprise 💖"
+              : "✨ Ek pyaara sa surprise tera wait krra hai… ✨"}
           </h2>
           <p className="teaser-hint">
-            Kyunki tum special ho… aur hamesha rahogi 💫
+            Kyunki tu mere liye special ho… aur hamesha rahegi 💫
           </p>
         </section>
 
@@ -158,7 +158,7 @@ function App() {
         </button>
         <MessageCard isActive={currentPage === 3} />
         <button className="page-nav-btn" onClick={() => goToPage(4)}>
-          📸 Our Beautiful Memories
+          📸 Hamarii pyariiii siiii yaadee🥳❤️
         </button>
       </div>
 
@@ -178,8 +178,8 @@ function App() {
             💖 Forever Yours — MUKUL 💖
           </h2>
           <p className="final-subtitle">
-            Tum meri duniya ho Chhotuuuu ❤️  
-            Aaj, kal aur hamesha… sirf tum 💕
+            Tu meri sbseee pyariii dost hai merii Chhotuuuu ❤️  
+            Aaj, kal aur hamesha… bss tuuu 💕
           </p>
         </section>
       </div>
