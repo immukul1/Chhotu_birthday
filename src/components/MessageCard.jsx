@@ -13,13 +13,20 @@ function MessageCard({ isActive }) {
   const curtainHintRef = useRef(null);
   const messageContentRef = useRef(null);
 
-  const message = Happiestt Birthday meri pyariiii siii betaaa🥳🥳🥳❤️❤️
-    Tu hmesha khush rhe aur aise hi hasti rhe or daily daily mere sath bahuttt saaree kalesh kartii rhee🥲🥲
-      mai ready hi hu unn sb kalesho ke liye😅, bss tu hai na sath or kya hi chiye, 
-        hmesha itni hi pyarii rhna meri chhotuu sii betaa
-        or mere sath aise hi faltu ki bakbak krti rhna hmeshaaaa,
-          Happiessttt bday again meri princiiiii❤️❤️❤️
-        ;
+  const message = `Happiestt Birthday meri pyariiii siii betaaa 🥳🥳🥳❤️❤️
+
+Tu hamesha khush rahe aur aise hi hasti rahe,
+aur daily daily mere saath bahuttt saare kalesh karti rahe 🥲🥲
+mai ready hi hu unn sab kaleshon ke liye 😅
+
+Bas tu saath ho na,
+toh aur kya hi chahiye ❤️
+
+Hamesha itni hi pyaari rehna meri chhotuu sii betaa,
+aur mere saath aise hi faltu ki bakbak karti rehna hameshaaaa 🤭
+
+Happiessttt Birthday again meri princiiiii ❤️❤️❤️
+— Forever Yours, MUKUL 💖`;
 
   // Handle page transitions
   useEffect(() => {
